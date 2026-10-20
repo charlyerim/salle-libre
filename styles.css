@@ -1,0 +1,572 @@
+/* =========================================================
+   styles.css · Intégration de l'écran Explorer (CampusRoom)
+   Mobile first : la base vise le téléphone (393 px dans Figma),
+   puis deux colonnes filtres / résultats à partir de 48rem.
+   ========================================================= */
+
+/* ---------- 1. Base ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-famille);
+  font-size: var(--font-xl);
+  line-height: 1.4;
+  color: var(--color-texte);
+  background: var(--color-fond);
+}
+
+h1, h2, h3, p, ul, fieldset, legend {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+fieldset {
+  border: 0;
+  min-width: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+/* Focus clavier visible sur tous les éléments interactifs */
+:focus-visible {
+  outline: var(--focus-epaisseur) solid var(--focus-couleur);
+  outline-offset: 2px;
+}
+
+/* Texte lu par les lecteurs d'écran mais caché à l'écran */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Lien d'évitement : visible seulement au clavier */
+.lien-evitement {
+  position: absolute;
+  left: var(--space-4);
+  top: -3rem;
+  z-index: 10;
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-texte);
+  color: var(--color-fond);
+  border-radius: var(--radius-s);
+}
+
+.lien-evitement:focus {
+  top: var(--space-4);
+}
+
+/* ---------- 2. En-tête ---------- */
+
+.entete {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5) 0;
+}
+
+.entete__salut {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.entete__titre {
+  font-size: var(--font-xxl);
+  font-weight: var(--poids-gras);
+  line-height: 1.25;
+}
+
+.entete__lieu {
+  font-size: var(--font-m);
+  color: var(--color-texte-secondaire);
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 2.75rem;          /* 44 px : cible tactile minimale */
+  height: 2.75rem;
+  border-radius: 50%;
+  background: var(--color-avatar);
+  font-size: var(--font-xxl);
+  font-weight: var(--poids-gras);
+}
+
+/* ---------- 3. Navigation principale (barre du bas sur mobile) ---------- */
+
+.nav {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+  background: var(--color-fond);
+  border-top: 1px solid var(--color-bordure);
+  padding: var(--space-1) var(--space-4) var(--space-5);
+}
+
+.nav__liste {
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav__lien {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  min-width: 4.75rem;
+  min-height: 2.75rem;
+  padding: var(--space-1) 0;
+  font-size: var(--font-xs);
+  font-weight: var(--poids-semi);
+  color: var(--color-texte-secondaire);
+  border-radius: var(--radius-s);
+}
+
+.nav__icone {
+  font-size: 1.125rem;
+  line-height: 1;
+}
+
+.nav__lien[aria-current="page"] {
+  color: var(--color-action);
+}
+
+/* ---------- 4. Mise en page de la page ---------- */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  /* Laisse la place à la barre de navigation fixe */
+  padding-bottom: 7rem;
+}
+
+/* ---------- 5. Composant : bouton ---------- */
+
+.bouton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 2.75rem;
+  padding: var(--space-3) var(--space-5);
+  border: 0;
+  border-radius: var(--radius-m);
+  font-weight: var(--poids-semi);
+  text-align: center;
+  cursor: pointer;
+}
+
+.bouton--primaire {
+  background: var(--color-action);
+  color: var(--color-sur-action);
+}
+
+.bouton--primaire:hover {
+  background: var(--color-action-survol);
+}
+
+/* Bouton blanc posé sur le bloc indigo */
+.bouton--clair {
+  width: 100%;
+  background: var(--color-fond);
+  color: var(--color-action);
+  font-size: var(--font-l);
+}
+
+.bouton--clair:hover {
+  background: var(--color-action-clair);
+}
+
+.bouton--clair:focus-visible {
+  outline-color: var(--color-fond);
+}
+
+/* Petit bouton « Réserver » des cartes */
+.bouton--secondaire {
+  min-width: 5.5rem;
+  min-height: 2.125rem;     /* 34 px dans la maquette */
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-s);
+  background: var(--color-action-clair);
+  color: var(--color-action);
+  font-size: var(--font-m);
+  font-weight: var(--poids-moyen);
+}
+
+.bouton--secondaire:hover {
+  background: var(--color-avatar);
+}
+
+/* ---------- 6. Bloc principal « Besoin d'une salle maintenant ? » ---------- */
+
+.bloc-rapide {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-4) var(--space-4) var(--space-6);
+  border-radius: var(--radius-xl);
+  background: var(--color-action);
+  color: var(--color-sur-action);
+}
+
+.bloc-rapide__titre {
+  font-size: var(--font-xl);
+  font-weight: var(--poids-gras);
+}
+
+.bloc-rapide__texte {
+  margin-bottom: var(--space-3);
+  font-size: var(--font-m);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ---------- 7. Filtres : puces et champs ---------- */
+
+.puces {
+  display: flex;
+  gap: 0.375rem;              /* 6 px : les 4 puces tiennent sur 393 px */
+  overflow-x: auto;           /* défile si l'écran est plus étroit */
+  padding: 2px;               /* laisse voir l'anneau de focus */
+}
+
+.puce {
+  position: relative;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+/* La case à cocher reste accessible au clavier mais invisible */
+.puce__case {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* La puce visible */
+.puce__texte {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: 2rem;
+  padding: var(--space-2) 0.375rem;
+  border: 1px solid var(--color-bordure);
+  border-radius: var(--radius-pill);
+  background: var(--color-fond);
+  font-size: var(--font-m);
+  font-weight: var(--poids-moyen);
+  white-space: nowrap;
+}
+
+.puce__case:checked + .puce__texte {
+  border-color: var(--color-action);
+  background: var(--color-action-clair);
+  color: var(--color-action);
+}
+
+.puce__case:focus-visible + .puce__texte {
+  outline: var(--focus-epaisseur) solid var(--focus-couleur);
+  outline-offset: 2px;
+}
+
+.filtres__plus {
+  margin-top: var(--space-1);
+}
+
+.filtres__resume {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  font-size: var(--font-m);
+  font-weight: var(--poids-semi);
+  color: var(--color-action);
+  cursor: pointer;
+}
+
+.filtres__champs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-top: var(--space-2);
+}
+
+.champ-groupe {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.champ-groupe > .champ {
+  flex: 1;
+}
+
+/* ---------- 8. Composant : champ de saisie ---------- */
+
+.champ {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.champ__label {
+  font-size: var(--font-m);
+  font-weight: var(--poids-moyen);
+}
+
+.champ__saisie {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-texte-secondaire);  /* contraste 3:1 sur blanc */
+  border-radius: var(--radius-m);
+  background: var(--color-fond);
+  font-size: var(--font-xl);
+}
+
+.champ__saisie:focus-visible {
+  border-color: var(--color-action);
+  outline: 2px solid var(--color-action);
+  outline-offset: 0;
+}
+
+.champ__aide {
+  font-size: var(--font-s);
+  color: var(--color-texte-secondaire);
+}
+
+/* ---------- 9. Résultats ---------- */
+
+.resultats {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.resultats__entete {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.resultats__titre {
+  font-size: var(--font-xl);
+  font-weight: var(--poids-gras);
+}
+
+.lien {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: 2.75rem;
+  font-size: var(--font-m);
+  font-weight: var(--poids-semi);
+  color: var(--color-action);
+  white-space: nowrap;
+}
+
+.lien:hover {
+  text-decoration: underline;
+}
+
+.liste-salles {
+  display: grid;
+  gap: var(--space-3);
+}
+
+/* ---------- 10. Composant : carte de salle ---------- */
+
+.carte {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  height: 100%;
+  padding: var(--space-4);
+  border: 1px solid var(--color-bordure);
+  border-radius: var(--radius-l);
+  background: var(--color-fond);
+  box-shadow: var(--ombre-carte);
+}
+
+.carte__haut {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.carte__titre {
+  font-size: var(--font-xl);
+  font-weight: var(--poids-gras);
+  line-height: 1.25;
+}
+
+.carte__lieu {
+  font-size: var(--font-m);
+  color: var(--color-texte-secondaire);
+}
+
+.carte__pied {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: auto;           /* le pied reste collé en bas de la carte */
+  padding-top: var(--space-3);
+}
+
+.carte__equipements {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  font-size: var(--font-s);
+  font-weight: var(--poids-moyen);
+  color: var(--color-texte-tertiaire);
+}
+
+/* ---------- 11. Composant : badge de disponibilité ---------- */
+
+.badge {
+  flex-shrink: 0;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-pill);
+  font-size: var(--font-xs);
+  font-weight: var(--poids-semi);
+  white-space: nowrap;
+}
+
+.badge--libre {
+  background: var(--color-libre-fond);
+  color: var(--color-libre);
+}
+
+.badge--bientot {
+  background: var(--color-bientot-fond);
+  color: var(--color-bientot);
+}
+
+/* =========================================================
+   À partir de 48rem (768 px) : deux colonnes filtres / résultats
+   ========================================================= */
+
+@media (min-width: 48rem) {
+
+  body {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "entete nav"
+      "page   page";
+    align-items: center;
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-6) 0;
+    column-gap: var(--space-6);
+  }
+
+  .entete {
+    grid-area: entete;
+    padding: 0;
+  }
+
+  .avatar {
+    display: none;            /* le profil est dans la navigation */
+  }
+
+  /* La barre du bas devient une navigation horizontale en haut */
+  .nav {
+    grid-area: nav;
+    position: static;
+    padding: 0;
+    border-top: 0;
+    background: none;
+  }
+
+  .nav__liste {
+    gap: var(--space-2);
+  }
+
+  .nav__lien {
+    flex-direction: row;
+    gap: var(--space-2);
+    min-width: 0;
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--font-l);
+  }
+
+  .nav__lien[aria-current="page"] {
+    background: var(--color-action-clair);
+  }
+
+  .page {
+    grid-area: page;
+    display: grid;
+    grid-template-columns: minmax(17rem, 22rem) 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "rapide  resultats"
+      "filtres resultats";
+    align-items: start;
+    gap: var(--space-6);
+    padding: var(--space-6) 0;
+  }
+
+  .bloc-rapide {
+    grid-area: rapide;
+  }
+
+  .filtres {
+    grid-area: filtres;
+  }
+
+  .resultats {
+    grid-area: resultats;
+    margin-top: 0;
+  }
+
+  /* Les puces passent à la ligne au lieu de défiler */
+  .puces {
+    flex-wrap: wrap;
+    overflow: visible;
+  }
+
+  /* Galerie de cartes : autant de colonnes que la place le permet */
+  .liste-salles {
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+    gap: var(--space-4);
+  }
+}

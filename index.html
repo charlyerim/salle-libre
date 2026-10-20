@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Explorer les salles libres · CampusRoom</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <a class="lien-evitement" href="#contenu">Aller au contenu</a>
+
+  <header class="entete">
+    <div class="entete__salut">
+      <h1 class="entete__titre">Bonjour Ines <span aria-hidden="true">👋</span></h1>
+      <p class="entete__lieu"><span aria-hidden="true">📍</span> Bâtiment H • 2e étage</p>
+    </div>
+    <a class="avatar" href="#" aria-label="Mon profil (Ines)">I</a>
+  </header>
+
+  <nav class="nav" aria-label="Principale">
+    <ul class="nav__liste">
+      <li><a class="nav__lien" href="#" aria-current="page"><span class="nav__icone" aria-hidden="true">🔍</span>Explorer</a></li>
+      <li><a class="nav__lien" href="#"><span class="nav__icone" aria-hidden="true">🗺️</span>Plan 2D</a></li>
+      <li><a class="nav__lien" href="#"><span class="nav__icone" aria-hidden="true">📅</span>Mes salles</a></li>
+      <li><a class="nav__lien" href="#"><span class="nav__icone" aria-hidden="true">👤</span>Profil</a></li>
+    </ul>
+  </nav>
+
+  <main id="contenu" class="page">
+
+    <!-- Bloc principal : réservation en un clic -->
+    <section class="bloc-rapide" aria-labelledby="titre-rapide">
+      <h2 id="titre-rapide" class="bloc-rapide__titre">Besoin d'une salle maintenant ?</h2>
+      <p class="bloc-rapide__texte">12 salles sont libres autour de vous</p>
+      <button class="bouton bouton--clair" type="button">
+        <span aria-hidden="true">⚡</span> Trouver en 1 clic (14h - 15h)
+      </button>
+    </section>
+
+    <!-- Filtres de recherche -->
+    <section class="filtres" aria-labelledby="titre-filtres">
+      <h2 id="titre-filtres" class="sr-only">Filtrer les salles</h2>
+
+      <form class="filtres__formulaire" action="#" method="get">
+        <fieldset class="puces">
+          <legend class="sr-only">Critères</legend>
+          <label class="puce">
+            <input class="puce__case" type="checkbox" name="critere" value="4-6-places">
+            <span class="puce__texte"><span aria-hidden="true">👥</span> 4-6 places</span>
+          </label>
+          <label class="puce">
+            <input class="puce__case" type="checkbox" name="critere" value="calme">
+            <span class="puce__texte"><span aria-hidden="true">🤫</span> Calme</span>
+          </label>
+          <label class="puce">
+            <input class="puce__case" type="checkbox" name="critere" value="batiment-h">
+            <span class="puce__texte"><span aria-hidden="true">🏛️</span> Bâtiment H</span>
+          </label>
+          <label class="puce">
+            <input class="puce__case" type="checkbox" name="critere" value="ecran">
+            <span class="puce__texte"><span aria-hidden="true">📺</span> Écran</span>
+          </label>
+        </fieldset>
+
+        <details class="filtres__plus">
+          <summary class="filtres__resume">Plus de filtres : date, créneau, places</summary>
+
+          <div class="filtres__champs">
+            <div class="champ">
+              <label class="champ__label" for="date">Date</label>
+              <input class="champ__saisie" id="date" name="date" type="date" value="2026-10-18" required>
+            </div>
+
+            <div class="champ-groupe">
+              <div class="champ">
+                <label class="champ__label" for="debut">De</label>
+                <input class="champ__saisie" id="debut" name="debut" type="time" value="14:00" step="900" required>
+              </div>
+              <div class="champ">
+                <label class="champ__label" for="fin">À</label>
+                <input class="champ__saisie" id="fin" name="fin" type="time" value="15:00" step="900" required>
+              </div>
+            </div>
+
+            <div class="champ">
+              <label class="champ__label" for="places">Nombre de places</label>
+              <input class="champ__saisie" id="places" name="places" type="number" min="1" max="20" value="4" aria-describedby="places-aide">
+              <p class="champ__aide" id="places-aide">Entre 1 et 20 personnes</p>
+            </div>
+
+            <button class="bouton bouton--primaire" type="submit">Rechercher</button>
+          </div>
+        </details>
+      </form>
+    </section>
+
+    <!-- Résultats -->
+    <section class="resultats" aria-labelledby="titre-resultats">
+      <div class="resultats__entete">
+        <h2 id="titre-resultats" class="resultats__titre">Disponibles maintenant</h2>
+        <a class="lien" href="#">Voir sur le plan <span aria-hidden="true">→</span></a>
+      </div>
+
+      <ul class="liste-salles">
+        <li>
+          <article class="carte">
+            <div class="carte__haut">
+              <h3 class="carte__titre">Salle H211 - Box Group</h3>
+              <p class="badge badge--libre"><span aria-hidden="true">●</span> Libre jusqu'à 16h30</p>
+            </div>
+            <p class="carte__lieu">Bâtiment H • 2e étage</p>
+            <div class="carte__pied">
+              <ul class="carte__equipements">
+                <li><span aria-hidden="true">👥</span> 6 places</li>
+                <li><span aria-hidden="true">📺</span> Écran</li>
+              </ul>
+              <a class="bouton bouton--secondaire" href="#">Réserver<span class="sr-only"> la salle H211</span></a>
+            </div>
+          </article>
+        </li>
+
+        <li>
+          <article class="carte">
+            <div class="carte__haut">
+              <h3 class="carte__titre">Salle H313 - Silence</h3>
+              <p class="badge badge--bientot"><span aria-hidden="true">●</span> Libre dans 15 min</p>
+            </div>
+            <p class="carte__lieu">Bâtiment H • 3e étage</p>
+            <div class="carte__pied">
+              <ul class="carte__equipements">
+                <li><span aria-hidden="true">👥</span> 3 places</li>
+                <li><span aria-hidden="true">📺</span> Écran</li>
+              </ul>
+              <a class="bouton bouton--secondaire" href="#">Réserver<span class="sr-only"> la salle H313</span></a>
+            </div>
+          </article>
+        </li>
+
+        <li>
+          <article class="carte">
+            <div class="carte__haut">
+              <h3 class="carte__titre">Salle H105 - Projet</h3>
+              <p class="badge badge--libre"><span aria-hidden="true">●</span> Libre jusqu'à 18h00</p>
+            </div>
+            <p class="carte__lieu">Bâtiment H • 1er étage</p>
+            <div class="carte__pied">
+              <ul class="carte__equipements">
+                <li><span aria-hidden="true">👥</span> 8 places</li>
+                <li><span aria-hidden="true">📝</span> Tableau blanc</li>
+              </ul>
+              <a class="bouton bouton--secondaire" href="#">Réserver<span class="sr-only"> la salle H105</span></a>
+            </div>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+</body>
+</html>

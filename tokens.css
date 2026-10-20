@@ -1,0 +1,73 @@
+/* =========================================================
+   tokens.css · Design tokens de CampusRoom (Salle Libre)
+   Valeurs relevées dans la maquette Figma (écran 01_Accueil).
+   Niveau 1 : primitives · Niveau 2 : sémantiques
+   ========================================================= */
+
+:root {
+  /* ---------- Couleurs : primitives ---------- */
+  --indigo-700: #4338CA;
+  --indigo-600: #4F46E5;
+  --indigo-100: #E0E7FF;
+  --indigo-50:  #EEF2FF;
+  --ardoise-900: #0F172A;
+  --ardoise-600: #475569;
+  --ardoise-500: #64748B;
+  --ardoise-200: #E2E8F0;
+  --blanc: #FFFFFF;
+  /* Vert et ambre foncés par rapport à la maquette (#059669, #D97706)
+     pour atteindre un contraste de 4,5:1 sur leur fond de badge. */
+  --vert-700: #047857;
+  --vert-100: #D1FAE5;
+  --ambre-800: #92400E;
+  --ambre-100: #FEF3C7;
+
+  /* ---------- Couleurs : sémantiques ---------- */
+  --color-action: var(--indigo-600);
+  --color-action-survol: var(--indigo-700);
+  --color-action-clair: var(--indigo-50);
+  --color-avatar: var(--indigo-100);
+  --color-texte: var(--ardoise-900);
+  --color-texte-secondaire: var(--ardoise-500);
+  --color-texte-tertiaire: var(--ardoise-600);
+  --color-bordure: var(--ardoise-200);
+  --color-fond: var(--blanc);
+  --color-sur-action: var(--blanc);
+  --color-libre: var(--vert-700);
+  --color-libre-fond: var(--vert-100);
+  --color-bientot: var(--ambre-800);
+  --color-bientot-fond: var(--ambre-100);
+
+  /* ---------- Typographie ---------- */
+  --font-famille: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-xs: 0.6875rem;   /* 11 px : badges, onglets */
+  --font-s: 0.75rem;      /* 12 px : équipements */
+  --font-m: 0.8125rem;    /* 13 px : texte secondaire, puces */
+  --font-l: 0.875rem;     /* 14 px : bouton du bloc principal */
+  --font-xl: 1rem;        /* 16 px : titres de carte et de section */
+  --font-xxl: 1.25rem;    /* 20 px : titre de page */
+  --poids-normal: 400;
+  --poids-moyen: 500;
+  --poids-semi: 600;
+  --poids-gras: 700;
+
+  /* ---------- Espacements ---------- */
+  --space-1: 0.25rem;  /* 4 px */
+  --space-2: 0.5rem;   /* 8 px */
+  --space-3: 0.75rem;  /* 12 px */
+  --space-4: 1rem;     /* 16 px */
+  --space-5: 1.25rem;  /* 20 px : marge de l'écran */
+  --space-6: 2rem;     /* 32 px */
+
+  /* ---------- Rayons ---------- */
+  --radius-s: 0.5rem;     /* 8 px : petit bouton */
+  --radius-m: 0.625rem;   /* 10 px : bouton du bloc principal */
+  --radius-l: 1rem;       /* 16 px : carte de salle */
+  --radius-xl: 1.25rem;   /* 20 px : bloc principal, avatar */
+  --radius-pill: 999px;   /* puces et badges */
+
+  /* ---------- Effets ---------- */
+  --ombre-carte: 0 4px 12px rgba(15, 23, 42, 0.05);
+  --focus-couleur: var(--color-texte);
+  --focus-epaisseur: 3px;
+}
