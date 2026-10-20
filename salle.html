@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Salle H211 - Box Group · CampusRoom</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <a class="lien-evitement" href="#contenu">Aller au contenu</a>
+
+  <main id="contenu" class="fiche">
+
+    <!-- Photo de la salle, retour et disponibilité -->
+    <div class="fiche__photo">
+      <img class="fiche__image" src="images/salle-h211.jpg" width="704" height="360"
+           alt="Salle H211 : tables blanches, chaises roses et grand écran au mur">
+      <a class="fiche__retour" href="index.html" aria-label="Retour aux salles disponibles">←</a>
+      <p class="badge badge--libre fiche__badge"><span aria-hidden="true">●</span> Libre jusqu'à 16h30</p>
+    </div>
+
+    <!-- Informations -->
+    <div class="fiche__infos">
+      <h1 class="fiche__titre">Salle H211 - Box Group</h1>
+      <p class="fiche__lieu"><span aria-hidden="true">📍</span> Bâtiment H • 2e étage</p>
+      <ul class="etiquettes" aria-label="Équipements">
+        <li class="etiquette"><span aria-hidden="true">👥</span> 4-6 places</li>
+        <li class="etiquette"><span aria-hidden="true">🤫</span> Calme</li>
+        <li class="etiquette"><span aria-hidden="true">📺</span> Écran</li>
+      </ul>
+    </div>
+
+    <form class="fiche__formulaire" action="confirmation.html" method="get">
+
+      <!-- Créneaux -->
+      <section class="fiche__section" aria-labelledby="titre-creneau">
+        <div class="fiche__section-entete">
+          <h2 id="titre-creneau" class="fiche__sous-titre">Choisir un créneau</h2>
+          <label class="sr-only" for="jour">Jour</label>
+          <select class="selecteur-jour" id="jour" name="jour">
+            <option value="2026-10-18">Aujourd'hui, 18 Oct</option>
+            <option value="2026-10-19">Demain, 19 Oct</option>
+            <option value="2026-10-20">Lundi, 20 Oct</option>
+          </select>
+        </div>
+
+        <fieldset class="creneaux">
+          <legend class="sr-only">Créneaux d'une heure, plusieurs choix possibles</legend>
+          <label class="creneau">
+            <input class="creneau__case" type="checkbox" name="creneau" value="13h-14h" disabled>
+            <span class="creneau__texte">13h00 - 14h00 (Occupé)</span>
+          </label>
+          <label class="creneau">
+            <input class="creneau__case" type="checkbox" name="creneau" value="14h-15h" checked>
+            <span class="creneau__texte">14h00 - 15h00</span>
+          </label>
+          <label class="creneau">
+            <input class="creneau__case" type="checkbox" name="creneau" value="15h-16h" checked>
+            <span class="creneau__texte">15h00 - 16h00</span>
+          </label>
+          <label class="creneau">
+            <input class="creneau__case" type="checkbox" name="creneau" value="16h-17h">
+            <span class="creneau__texte">16h00 - 17h00</span>
+          </label>
+        </fieldset>
+      </section>
+
+      <!-- Participants -->
+      <section class="fiche__section" aria-labelledby="titre-participants">
+        <h2 id="titre-participants" class="fiche__sous-titre fiche__sous-titre--petit">Participants (3/6 places)</h2>
+        <div class="participants">
+          <ul class="participants__liste">
+            <li class="participant" title="Ines">I</li>
+            <li class="participant" title="M.">M</li>
+            <li class="participant" title="S.">S</li>
+          </ul>
+          <button class="bouton bouton--pastille" type="button">+ Inviter un étudiant</button>
+        </div>
+      </section>
+
+      <!-- Action principale, fixée en bas sur mobile -->
+      <div class="barre-action">
+        <button class="bouton bouton--primaire bouton--large" type="submit">Confirmer la réservation (2h)</button>
+      </div>
+    </form>
+
+  </main>
+
+</body>
+</html>

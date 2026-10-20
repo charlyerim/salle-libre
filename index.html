@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="tokens.css">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="app">
 
   <a class="lien-evitement" href="#contenu">Aller au contenu</a>
 
@@ -19,15 +19,15 @@
       <h1 class="entete__titre">Bonjour Ines <span aria-hidden="true">👋</span></h1>
       <p class="entete__lieu"><span aria-hidden="true">📍</span> Bâtiment H • 2e étage</p>
     </div>
-    <a class="avatar" href="#" aria-label="Mon profil (Ines)">I</a>
+    <a class="avatar" href="connexion.html" aria-label="Mon profil (Ines)">I</a>
   </header>
 
   <nav class="nav" aria-label="Principale">
     <ul class="nav__liste">
-      <li><a class="nav__lien" href="#" aria-current="page"><span class="nav__icone" aria-hidden="true">🔍</span>Explorer</a></li>
+      <li><a class="nav__lien" href="index.html" aria-current="page"><span class="nav__icone" aria-hidden="true">🔍</span>Explorer</a></li>
       <li><a class="nav__lien" href="#"><span class="nav__icone" aria-hidden="true">🗺️</span>Plan 2D</a></li>
-      <li><a class="nav__lien" href="#"><span class="nav__icone" aria-hidden="true">📅</span>Mes salles</a></li>
-      <li><a class="nav__lien" href="#"><span class="nav__icone" aria-hidden="true">👤</span>Profil</a></li>
+      <li><a class="nav__lien" href="confirmation.html"><span class="nav__icone" aria-hidden="true">📅</span>Mes salles</a></li>
+      <li><a class="nav__lien" href="connexion.html"><span class="nav__icone" aria-hidden="true">👤</span>Profil</a></li>
     </ul>
   </nav>
 
@@ -37,9 +37,9 @@
     <section class="bloc-rapide" aria-labelledby="titre-rapide">
       <h2 id="titre-rapide" class="bloc-rapide__titre">Besoin d'une salle maintenant ?</h2>
       <p class="bloc-rapide__texte">12 salles sont libres autour de vous</p>
-      <button class="bouton bouton--clair" type="button">
+      <a class="bouton bouton--clair" href="salle.html">
         <span aria-hidden="true">⚡</span> Trouver en 1 clic (14h - 15h)
-      </button>
+      </a>
     </section>
 
     <!-- Filtres de recherche -->
@@ -119,7 +119,7 @@
                 <li><span aria-hidden="true">👥</span> 6 places</li>
                 <li><span aria-hidden="true">📺</span> Écran</li>
               </ul>
-              <a class="bouton bouton--secondaire" href="#">Réserver<span class="sr-only"> la salle H211</span></a>
+              <a class="bouton bouton--secondaire" href="salle.html">Réserver<span class="sr-only"> la salle H211</span></a>
             </div>
           </article>
         </li>
@@ -136,7 +136,7 @@
                 <li><span aria-hidden="true">👥</span> 3 places</li>
                 <li><span aria-hidden="true">📺</span> Écran</li>
               </ul>
-              <a class="bouton bouton--secondaire" href="#">Réserver<span class="sr-only"> la salle H313</span></a>
+              <a class="bouton bouton--secondaire" href="salle.html">Réserver<span class="sr-only"> la salle H313</span></a>
             </div>
           </article>
         </li>
@@ -153,7 +153,7 @@
                 <li><span aria-hidden="true">👥</span> 8 places</li>
                 <li><span aria-hidden="true">📝</span> Tableau blanc</li>
               </ul>
-              <a class="bouton bouton--secondaire" href="#">Réserver<span class="sr-only"> la salle H105</span></a>
+              <a class="bouton bouton--secondaire" href="salle.html">Réserver<span class="sr-only"> la salle H105</span></a>
             </div>
           </article>
         </li>

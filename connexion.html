@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Connexion · CampusRoom</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <main class="connexion">
+
+    <header class="connexion__entete">
+      <p class="connexion__logo" aria-hidden="true">🎓</p>
+      <h1 class="connexion__marque">CampusRoom</h1>
+      <p class="connexion__accroche">Réservez une salle libre sur le campus en 2 clics</p>
+    </header>
+
+    <a class="bouton bouton--primaire bouton--large" href="index.html">
+      <span aria-hidden="true">🎓</span> Continuer avec mon ENT
+    </a>
+
+    <p class="connexion__separateur">ou avec votre email étudiant</p>
+
+    <!-- L'envoi réel du formulaire sera géré en JavaScript (séance 4) -->
+    <form class="connexion__formulaire" action="index.html" method="get">
+      <div class="champ">
+        <label class="champ__label" for="email">Email étudiant</label>
+        <input class="champ__saisie champ__saisie--large" id="email" name="email" type="email" autocomplete="email" placeholder="prenom.nom@etu.univ.fr" required>
+      </div>
+
+      <div class="champ">
+        <label class="champ__label" for="mot-de-passe">Mot de passe</label>
+        <input class="champ__saisie champ__saisie--large" id="mot-de-passe" type="password" autocomplete="current-password" required>
+      </div>
+
+      <button class="bouton bouton--sombre bouton--large" type="submit">Se connecter</button>
+
+      <a class="lien connexion__oubli" href="#">Mot de passe oublié ?</a>
+    </form>
+
+    <a class="lien connexion__invite" href="index.html">
+      Explorer les salles libres sans compte <span aria-hidden="true">→</span>
+    </a>
+
+  </main>
+
+</body>
+</html>

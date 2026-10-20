@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Réservation confirmée · CampusRoom</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="app">
+
+  <a class="lien-evitement" href="#contenu">Aller au contenu</a>
+
+  <nav class="nav" aria-label="Principale">
+    <ul class="nav__liste">
+      <li><a class="nav__lien" href="index.html"><span class="nav__icone" aria-hidden="true">🔍</span>Explorer</a></li>
+      <li><a class="nav__lien" href="#"><span class="nav__icone" aria-hidden="true">🗺️</span>Plan 2D</a></li>
+      <li><a class="nav__lien" href="confirmation.html" aria-current="page"><span class="nav__icone" aria-hidden="true">📅</span>Mes salles</a></li>
+      <li><a class="nav__lien" href="connexion.html"><span class="nav__icone" aria-hidden="true">👤</span>Profil</a></li>
+    </ul>
+  </nav>
+
+  <main id="contenu" class="confirmation">
+
+    <div class="confirmation__entete">
+      <p class="confirmation__icone" aria-hidden="true">✓</p>
+      <h1 class="confirmation__titre">Réservation confirmée !</h1>
+      <p class="confirmation__texte">Votre groupe est attendu en Salle H211.</p>
+    </div>
+
+    <section class="billet" aria-labelledby="titre-billet">
+      <h2 id="titre-billet" class="sr-only">Votre accès à la salle</h2>
+      <p class="billet__alerte"><span aria-hidden="true">⏳</span> Scannez avant 14h15 pour garder la salle</p>
+      <img class="billet__qr" src="images/qr-code.svg" width="160" height="160"
+           alt="QR code d'accès à la salle H211, de 14h00 à 16h00">
+      <p class="billet__aide">Présentez ce code devant le lecteur de la porte ou utilisez-le en NFC</p>
+      <p class="billet__resume">
+        <span class="billet__salle">Salle H211 • Bât. H</span>
+        <span class="billet__heure">14h00 - 16h00</span>
+      </p>
+    </section>
+
+    <div class="confirmation__actions">
+      <button class="bouton bouton--clair-large" type="button">
+        <span aria-hidden="true">📅</span> Ajouter à mon emploi du temps ENT
+      </button>
+      <a class="bouton bouton--danger" href="index.html">Libérer la salle (Annuler)</a>
+    </div>
+
+  </main>
+
+</body>
+</html>

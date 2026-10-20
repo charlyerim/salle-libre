@@ -267,7 +267,8 @@ input {
 }
 
 /* La case à cocher reste accessible au clavier mais invisible */
-.puce__case {
+.puce__case,
+.creneau__case {
   position: absolute;
   top: 0;
   left: 0;
@@ -278,8 +279,9 @@ input {
   cursor: pointer;
 }
 
-/* La puce visible */
-.puce__texte {
+/* La puce visible (et les étiquettes d'équipement de la fiche) */
+.puce__texte,
+.etiquette {
   display: inline-flex;
   align-items: center;
   gap: var(--space-1);
@@ -479,13 +481,442 @@ input {
   color: var(--color-bientot);
 }
 
+/* ---------- 12. Boutons supplémentaires ---------- */
+
+.bouton--large {
+  width: 100%;
+  min-height: 3.25rem;        /* 52 px dans la maquette */
+  border-radius: var(--radius-ml);
+  font-size: var(--font-xl);
+}
+
+.bouton--sombre {
+  background: var(--color-sombre);
+  color: var(--color-sur-action);
+}
+
+.bouton--sombre:hover {
+  background: var(--color-texte-tertiaire);
+}
+
+/* Petit bouton arrondi « + Inviter un étudiant » */
+.bouton--pastille {
+  min-height: 2rem;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+  background: var(--color-action);
+  color: var(--color-sur-action);
+  font-size: var(--font-xs);
+  font-weight: var(--poids-gras);
+  white-space: nowrap;
+}
+
+.bouton--pastille:hover {
+  background: var(--color-action-survol);
+}
+
+.bouton--clair-large,
+.bouton--danger {
+  width: 100%;
+  min-height: 3rem;
+  border-radius: var(--radius-ml);
+  font-size: var(--font-l);
+}
+
+.bouton--clair-large {
+  background: var(--color-action-clair);
+  color: var(--color-action);
+}
+
+.bouton--clair-large:hover {
+  background: var(--color-avatar);
+}
+
+.bouton--danger {
+  background: var(--color-danger-fond);
+  color: var(--color-danger);
+}
+
+.bouton--danger:hover {
+  text-decoration: underline;
+}
+
+/* ---------- 13. Page Connexion ---------- */
+
+.connexion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-height: 100vh;
+  max-width: 26rem;
+  margin: 0 auto;
+  padding: var(--space-7) var(--space-5) var(--space-6);
+}
+
+.connexion__entete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+  text-align: center;
+}
+
+.connexion__logo {
+  display: grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--radius-l);
+  background: var(--color-action);
+  font-size: 1.75rem;
+}
+
+.connexion__marque {
+  font-size: var(--font-marque);
+  font-weight: var(--poids-gras);
+}
+
+.connexion__accroche {
+  font-size: var(--font-l);
+  color: var(--color-texte-secondaire);
+}
+
+.connexion__separateur {
+  text-align: center;
+  font-size: var(--font-s);
+  color: var(--color-texte-secondaire);
+}
+
+.connexion__formulaire {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.champ__saisie--large {
+  min-height: 3rem;
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-ml);
+}
+
+.champ__saisie::placeholder {
+  color: var(--color-texte-secondaire);
+}
+
+.connexion__oubli {
+  align-self: flex-end;
+  font-size: var(--font-s);
+  font-weight: var(--poids-moyen);
+}
+
+/* Le lien « sans compte » reste collé en bas de l'écran */
+.connexion__invite {
+  margin-top: auto;
+  align-self: center;
+  font-size: var(--font-l);
+}
+
+/* ---------- 14. Page Fiche salle ---------- */
+
+.fiche {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: var(--space-2) var(--space-5) 8rem;
+}
+
+.fiche__photo {
+  position: relative;
+  height: 11.25rem;           /* 180 px */
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  background: var(--color-image-fond);
+}
+
+.fiche__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fiche__retour {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.9);
+  font-size: var(--font-xl);
+  font-weight: var(--poids-gras);
+}
+
+.fiche__badge {
+  position: absolute;
+  right: var(--space-3);
+  bottom: var(--space-3);
+}
+
+.fiche__infos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.fiche__titre {
+  font-size: var(--font-titre);
+  font-weight: var(--poids-gras);
+  line-height: 1.25;
+}
+
+.fiche__lieu {
+  font-size: var(--font-m);
+  color: var(--color-texte-secondaire);
+}
+
+.etiquettes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-1);
+}
+
+.fiche__formulaire {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+}
+
+.fiche__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.fiche__section-entete {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.fiche__sous-titre {
+  font-size: var(--font-xl);
+  font-weight: var(--poids-gras);
+}
+
+.fiche__sous-titre--petit {
+  font-size: var(--font-l);
+}
+
+.selecteur-jour {
+  min-height: 2.75rem;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: var(--font-m);
+  font-weight: var(--poids-semi);
+  color: var(--color-action);
+  cursor: pointer;
+}
+
+/* Grille des créneaux : 2 colonnes */
+.creneaux {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.625rem;
+}
+
+.creneau {
+  position: relative;
+  cursor: pointer;
+}
+
+.creneau__texte {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: var(--space-2);
+  border: 1px solid var(--color-bordure);
+  border-radius: var(--radius-m);
+  background: var(--color-fond);
+  font-size: var(--font-xs);
+  font-weight: var(--poids-semi);
+  text-align: center;
+}
+
+.creneau__case:checked + .creneau__texte {
+  border-color: var(--color-action);
+  background: var(--color-action);
+  color: var(--color-sur-action);
+}
+
+.creneau__case:checked + .creneau__texte::before {
+  content: "✓\00a0";
+}
+
+.creneau__case:disabled {
+  cursor: not-allowed;
+}
+
+.creneau__case:disabled + .creneau__texte {
+  border-color: var(--color-desactive-fond);
+  background: var(--color-desactive-fond);
+  color: var(--color-desactive);
+}
+
+.creneau__case:focus-visible + .creneau__texte {
+  outline: var(--focus-epaisseur) solid var(--focus-couleur);
+  outline-offset: 2px;
+}
+
+.participants {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--color-bordure);
+  border-radius: var(--radius-ml);
+}
+
+.participants__liste {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.participant {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--color-image-fond);
+  font-size: var(--font-l);
+  font-weight: var(--poids-gras);
+}
+
+/* Bouton de confirmation fixé en bas de l'écran sur mobile */
+.barre-action {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+  padding: var(--space-3) var(--space-5) var(--space-6);
+  border-top: 1px solid var(--color-bordure);
+  background: var(--color-fond);
+}
+
+/* ---------- 15. Page Confirmation ---------- */
+
+.confirmation {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: var(--space-5) var(--space-5) 7rem;
+}
+
+.confirmation__entete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  text-align: center;
+}
+
+.confirmation__icone {
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-bottom: var(--space-1);
+  border-radius: var(--radius-pill);
+  background: var(--color-libre-fond);
+  color: var(--color-libre);
+  font-size: 1.75rem;
+  font-weight: var(--poids-gras);
+}
+
+.confirmation__titre {
+  font-size: var(--font-titre);
+  font-weight: var(--poids-gras);
+}
+
+.confirmation__texte {
+  font-size: var(--font-l);
+  color: var(--color-texte-secondaire);
+}
+
+.billet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-4) var(--space-4);
+  border: 1px solid var(--color-bordure);
+  border-radius: var(--radius-xxl);
+}
+
+.billet__alerte {
+  align-self: stretch;
+  padding: var(--space-3);
+  border-radius: var(--radius-m);
+  background: var(--color-bientot-fond);
+  color: var(--color-bientot);
+  font-size: var(--font-s);
+  font-weight: var(--poids-semi);
+  text-align: center;
+}
+
+.billet__qr {
+  margin-top: var(--space-5);
+}
+
+.billet__aide {
+  max-width: 17rem;
+  font-size: var(--font-s);
+  color: var(--color-texte-secondaire);
+  text-align: center;
+}
+
+.billet__resume {
+  display: flex;
+  justify-content: space-between;
+  align-self: stretch;
+  gap: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-bordure);
+  font-size: 0.9375rem;      /* 15 px */
+  font-weight: var(--poids-gras);
+}
+
+.billet__heure {
+  color: var(--color-action);
+}
+
+.confirmation__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
 /* =========================================================
    À partir de 48rem (768 px) : deux colonnes filtres / résultats
    ========================================================= */
 
 @media (min-width: 48rem) {
 
-  body {
+  /* Pages avec navigation : Explorer et Mes salles */
+  .app {
     display: grid;
     grid-template-columns: 1fr auto;
     grid-template-areas:
@@ -568,5 +999,25 @@ input {
   .liste-salles {
     grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
     gap: var(--space-4);
+  }
+
+  /* Fiche salle : la barre d'action reprend sa place dans la page */
+  .fiche {
+    padding-bottom: var(--space-6);
+  }
+
+  .barre-action {
+    position: static;
+    padding: 0;
+    border-top: 0;
+  }
+
+  /* Confirmation : colonne centrée sous la navigation */
+  .confirmation {
+    grid-area: page;
+    width: 100%;
+    max-width: 28rem;
+    margin: 0 auto;
+    padding: var(--space-6) 0;
   }
 }

@@ -13,7 +13,10 @@
   --ardoise-900: #0F172A;
   --ardoise-600: #475569;
   --ardoise-500: #64748B;
+  --ardoise-400: #94A3B8;
+  --ardoise-300: #CBD5E1;
   --ardoise-200: #E2E8F0;
+  --ardoise-100: #F1F5F9;
   --blanc: #FFFFFF;
   /* Vert et ambre foncés par rapport à la maquette (#059669, #D97706)
      pour atteindre un contraste de 4,5:1 sur leur fond de badge. */
@@ -21,6 +24,9 @@
   --vert-100: #D1FAE5;
   --ambre-800: #92400E;
   --ambre-100: #FEF3C7;
+  /* Rouge foncé par rapport à la maquette (#EF4444) pour le contraste */
+  --rouge-700: #B91C1C;
+  --rouge-50: #FEF2F2;
 
   /* ---------- Couleurs : sémantiques ---------- */
   --color-action: var(--indigo-600);
@@ -37,6 +43,12 @@
   --color-libre-fond: var(--vert-100);
   --color-bientot: var(--ambre-800);
   --color-bientot-fond: var(--ambre-100);
+  --color-sombre: var(--ardoise-900);
+  --color-desactive: var(--ardoise-400);
+  --color-desactive-fond: var(--ardoise-100);
+  --color-image-fond: var(--ardoise-300);
+  --color-danger: var(--rouge-700);
+  --color-danger-fond: var(--rouge-50);
 
   /* ---------- Typographie ---------- */
   --font-famille: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -46,6 +58,8 @@
   --font-l: 0.875rem;     /* 14 px : bouton du bloc principal */
   --font-xl: 1rem;        /* 16 px : titres de carte et de section */
   --font-xxl: 1.25rem;    /* 20 px : titre de page */
+  --font-titre: 1.375rem; /* 22 px : titre de la fiche et de la confirmation */
+  --font-marque: 1.5rem;  /* 24 px : nom de l'application */
   --poids-normal: 400;
   --poids-moyen: 500;
   --poids-semi: 600;
@@ -58,12 +72,15 @@
   --space-4: 1rem;     /* 16 px */
   --space-5: 1.25rem;  /* 20 px : marge de l'écran */
   --space-6: 2rem;     /* 32 px */
+  --space-7: 3rem;     /* 48 px */
 
   /* ---------- Rayons ---------- */
   --radius-s: 0.5rem;     /* 8 px : petit bouton */
   --radius-m: 0.625rem;   /* 10 px : bouton du bloc principal */
   --radius-l: 1rem;       /* 16 px : carte de salle */
-  --radius-xl: 1.25rem;   /* 20 px : bloc principal, avatar */
+  --radius-xl: 1.25rem;   /* 20 px : bloc principal, photo */
+  --radius-ml: 0.75rem;   /* 12 px : grands boutons, champs de connexion */
+  --radius-xxl: 1.5rem;   /* 24 px : billet de confirmation */
   --radius-pill: 999px;   /* puces et badges */
 
   /* ---------- Effets ---------- */
